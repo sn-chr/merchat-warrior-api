@@ -213,32 +213,18 @@ export default function CheckoutForm() {
       if (orderData.error) {
         throw new Error(orderData.error);
       }
-
-      // Generate payment link
-      const paymentResponse = await fetch('/api/orders/create-payment', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          orderItems: cartItems,
-          customerInfo: formData,
-          orderId: orderData.orderId
-        })
-      });
-
-      const paymentData = await paymentResponse.json();
-
-      if (paymentData.error) {
-        throw new Error(paymentData.error);
-      }
-
+      console.log('Order data:', orderData);
+      
       // Clear cart after successful order creation
       localStorage.removeItem('cart');
 
-      // Redirect to the payment page
-      if (paymentData.paymentLink) {
-        window.location.href = paymentData.paymentLink;
+      // Open payment link in new tab and redirect current tab to success page
+      if (orderData.uniqueCode) {
+        console.log('Unique code:', orderData.uniqueCode);
+        // Open payment link in new tab
+        window.open("https://test.mwpay.link/" + orderData.uniqueCode, '_blank');
+        // Redirect current tab to success page
+        router.push('/checkout/success');
       } else {
         throw new Error('No payment link received');
       }
