@@ -5,5 +5,7 @@ module.exports = {
     MW_MERCHANT_UUID: process.env.MW_MERCHANT_UUID,
   },
   reactStrictMode: true,
-  webpack5: true,
+  images: {
+    domains: ['flagcdn.com'],
+  }
 } 
