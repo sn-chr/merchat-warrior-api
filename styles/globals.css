@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+select option {
+  padding: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Improve emoji rendering in select */
+select option, .flag-emoji {
+  font-family: "Segoe UI Emoji", "Segoe UI Symbol", "Apple Color Emoji", "Noto Color Emoji", "Android Emoji", sans-serif;
+}
+
+.country-select-dropdown {
+  scrollbar-width: thin;
+  scrollbar-color: #94a3b8 #f1f5f9;
+}
+
+.country-select-dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+
+.country-select-dropdown::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.country-select-dropdown::-webkit-scrollbar-thumb {
+  background-color: #94a3b8;
+  border-radius: 3px;
+}
+
+.flag-emoji {
+  font-family: "Segoe UI Emoji", "Segoe UI Symbol", "Apple Color Emoji", "Noto Color Emoji", "Android Emoji", sans-serif;
+  font-size: 1.25rem; /* equivalent to text-xl */
+  line-height: 1;
+} 
